@@ -6,14 +6,17 @@ using UnityEngine;
 public class Gerador : MonoBehaviour
 {
     public GameObject modeloPlataforma;
-    public GameObject modeloMosca
-        ;
+    public GameObject modeloMosca;
+    public GameObject modeloApple;
+
     public Transform cameraTransform;
 
     public List<Transform> plataformas;
 
     float distancia = 1;
     float chanceDeTerMosca = 5;
+    float chanceDeTerApple = 2;
+    float chanceDeTerPlataformaQueCai = 5;
 
     public void Iniciar()
     {
@@ -43,6 +46,28 @@ public class Gerador : MonoBehaviour
             if (chanceDeTerMosca > 50)
             {
                 chanceDeTerMosca = 50;
+            }
+        }
+
+        float valorSorteadoApple = Random.Range(0f, 100f);
+        if (valorSorteadoApple < chanceDeTerApple)
+        {
+            Instantiate(modeloApple, transformPlataforma.position + Vector3.up * 0.7f, Quaternion.identity);
+            chanceDeTerApple += 2;
+            if (chanceDeTerApple > 20)
+            {
+                chanceDeTerApple = 20;
+            }
+        }
+
+        float valorPlataformaQueCai = Random.Range(0f, 100f);
+        if (valorPlataformaQueCai < chanceDeTerPlataformaQueCai)
+        {
+            Instantiate(modeloApple, transformPlataforma.position + Vector3.up * 0.7f, Quaternion.identity);
+            chanceDeTerPlataformaQueCai += 5;
+            if (chanceDeTerPlataformaQueCai > 15)
+            {
+                chanceDeTerPlataformaQueCai = 15;
             }
         }
     }

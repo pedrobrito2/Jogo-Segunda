@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46, y: 421}
+  m_AnchoredPosition: {x: -42, y: 421}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162688804
@@ -530,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modeloPlataforma: {fileID: 7773814714334537666, guid: 82d9f4107db314f41800df53938aa567, type: 3}
   modeloMosca: {fileID: 1196461874386057648, guid: 379b3aded10d9ca46968268b6d864a1f, type: 3}
+  modeloApple: {fileID: 5243223294019018429, guid: 23a044686a66b7c4ebe8a126e25bb8b6, type: 3}
   cameraTransform: {fileID: 519420032}
   plataformas:
   - {fileID: 1783322204}
@@ -1131,6 +1132,8 @@ MonoBehaviour:
   rig: {fileID: 1477641131}
   jumpForce: 8
   speed: 5
+  superJumpForce: 15
+  tempoDoSuperPulo: 2
   pontuacaoText: {fileID: 162688804}
   pontos: 0
 --- !u!58 &1477641130
@@ -1627,7 +1630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51, y: 391}
+  m_AnchoredPosition: {x: -47, y: 391}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040983470

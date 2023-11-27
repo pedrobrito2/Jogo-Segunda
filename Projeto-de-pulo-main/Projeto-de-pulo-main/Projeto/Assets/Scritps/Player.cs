@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public float speed;
 
+    public float superJumpForce; //super pulo da maça
+    bool estaNoSuperPulo = false; //esta no super pulo e esta imortal
+    public float tempoDoSuperPulo;
+    private float tempoAtualDoSuperPulo = 0f;
+
     public TMP_Text pontuacaoText;
     public int pontos = 0;
 
@@ -37,6 +42,11 @@ public class Player : MonoBehaviour
             pontos = (int)transform.position.y;
             pontuacaoText.text = "Pontos: " + pontos.ToString();
         }
+
+        if (tempoAtualDoSuperPulo < tempoDoSuperPulo)
+        {
+            tempoAtualDoSuperPulo += Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,7 +61,22 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.layer == 7) //colidiu com a mosca
         {
-            gameManager.GameOver();
+            if (tempoAtualDoSuperPulo < tempoDoSuperPulo)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                gameManager.GameOver();
+            }
+        }
+
+        if (collision.gameObject.layer == 8) //colidiu com a maça
+        {
+            tempoAtualDoSuperPulo = 0f;
+            estaNoSuperPulo = true;
+            rig.velocity = new Vector2(0, superJumpForce);
+            Destroy(collision.gameObject);
         }
     }
 }
