@@ -531,6 +531,7 @@ MonoBehaviour:
   modeloPlataforma: {fileID: 7773814714334537666, guid: 82d9f4107db314f41800df53938aa567, type: 3}
   modeloMosca: {fileID: 1196461874386057648, guid: 379b3aded10d9ca46968268b6d864a1f, type: 3}
   modeloApple: {fileID: 5243223294019018429, guid: 23a044686a66b7c4ebe8a126e25bb8b6, type: 3}
+  modeloPlataformaQueCai: {fileID: 7023635300765517525, guid: eb03b7538008d834592b459bdf8615e9, type: 3}
   cameraTransform: {fileID: 519420032}
   plataformas:
   - {fileID: 1783322204}

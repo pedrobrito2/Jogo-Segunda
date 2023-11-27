@@ -8,6 +8,7 @@ public class Gerador : MonoBehaviour
     public GameObject modeloPlataforma;
     public GameObject modeloMosca;
     public GameObject modeloApple;
+    public GameObject modeloPlataformaQueCai;
 
     public Transform cameraTransform;
 
@@ -60,16 +61,7 @@ public class Gerador : MonoBehaviour
             }
         }
 
-        float valorPlataformaQueCai = Random.Range(0f, 100f);
-        if (valorPlataformaQueCai < chanceDeTerPlataformaQueCai)
-        {
-            Instantiate(modeloApple, transformPlataforma.position + Vector3.up * 0.7f, Quaternion.identity);
-            chanceDeTerPlataformaQueCai += 5;
-            if (chanceDeTerPlataformaQueCai > 15)
-            {
-                chanceDeTerPlataformaQueCai = 15;
-            }
-        }
+  
     }
 
     void Update()
