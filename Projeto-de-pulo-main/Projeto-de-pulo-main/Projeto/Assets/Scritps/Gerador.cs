@@ -36,9 +36,13 @@ public class Gerador : MonoBehaviour
         {
             distancia = 3f;
         }
-        var transformPlataforma = Instantiate(modeloPlataforma, new Vector3(x, y), Quaternion.identity).transform;
+
+        chanceDeTerPlataformaQueCai = Random.Range(0f, 100f);
+
+        var transformPlataforma = Instantiate(chanceDeTerPlataformaQueCai < 20 ? modeloPlataformaQueCai : modeloPlataforma, new Vector3(x, y), Quaternion.identity).transform;
         plataformas.Add(transformPlataforma);
 
+      
         float valorSorteado = Random.Range(0f, 100f);
         if (valorSorteado < chanceDeTerMosca)
         {

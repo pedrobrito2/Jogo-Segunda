@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     public float speed;
 
     public float superJumpForce; //super pulo da maça
-    bool estaNoSuperPulo = false; //esta no super pulo e esta imortal
     public float tempoDoSuperPulo;
     private float tempoAtualDoSuperPulo = 0f;
 
@@ -59,6 +58,16 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.layer == 9) //colidiu com a plataforma que cai
+        {
+            if (rig.velocity.y < 0)
+            {
+                rig.velocity = new Vector2(0, jumpForce);
+                var rigPlataforma = collision.GetComponent<Rigidbody2D>();
+                rigPlataforma.bodyType = RigidbodyType2D.Dynamic;
+            }
+        }
+
         if (collision.gameObject.layer == 7) //colidiu com a mosca
         {
             if (tempoAtualDoSuperPulo < tempoDoSuperPulo)
@@ -74,7 +83,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 8) //colidiu com a maça
         {
             tempoAtualDoSuperPulo = 0f;
-            estaNoSuperPulo = true;
             rig.velocity = new Vector2(0, superJumpForce);
             Destroy(collision.gameObject);
         }
